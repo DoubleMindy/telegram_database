@@ -30,15 +30,15 @@
           <tr>            
             <td><TMPL_VAR NAME=TG_ID></td>
             <th score="row"><TMPL_VAR NAME=TITLE></th>
-            <td><a href="/cgi-bin/Dispatcher.pl?class=Timokhin_member&event=show_all&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>">Members</a></td>
-            <td><a href="/cgi-bin/Dispatcher.pl?class=Timokhin_homework&event=show_all&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>">Homeworks</a></td>
-            <td><a href="/cgi-bin/Dispatcher.pl?class=Timokhin_stack&event=show_all&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>">Results</a></td>
+            <td><a href="/cgi-bin/Dispatcher.pl?class=Member&event=filter&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>">Members</a></td>
+            <td><a href="/cgi-bin/Dispatcher.pl?class=Homework&event=filter&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>">Homeworks</a></td>
+            <td><a href="/cgi-bin/Dispatcher.pl?class=Stack&event=filter&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>">Results</a></td>
             <td><input type="checkbox" name="group_id" value="<TMPL_VAR NAME=TG_ID>"></td>  
           </tr>
           </TMPL_LOOP>
         </tbody>
     </table>     
-    <input type="hidden" name="class" value="Timokhin_group">
+    <input type="hidden" name="class" value="Group">
     <input type="hidden" name="event" value="delete_row">    
     <input type="submit" value="Delete groups!" class="form-control" />  
     </form> 
@@ -56,7 +56,7 @@
     <label for="input_group_title" class="col-sm-2 col-form-label"> Title of group </label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="input_group_title" name="group_title" placeholder="Group title">
-      <input type="hidden" name="class" value="Timokhin_group">
+      <input type="hidden" name="class" value="Group">
       <input type="hidden" name="event" value="insert_row">
     </div>
   </div>
