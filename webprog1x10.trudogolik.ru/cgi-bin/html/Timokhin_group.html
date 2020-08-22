@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.css">
   </head>
   <body>  
+    <form action="">
     <table width="100%" class="table">
         <thead class="thead-dark">
           <tr>    
@@ -20,10 +21,11 @@
             <th scope="col"></th>
             <th scope="col"></th>
             <th scope="col"></th>
-            <th scope="col"></th>
+            <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
+        
           <TMPL_LOOP NAME=GROUP_INFO>
           <tr>            
             <td><TMPL_VAR NAME=TG_ID></td>
@@ -31,11 +33,16 @@
             <td><a href="/cgi-bin/Dispatcher.pl?class=Timokhin_member&event=show_all&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>">Members</a></td>
             <td><a href="/cgi-bin/Dispatcher.pl?class=Timokhin_homework&event=show_all&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>">Homeworks</a></td>
             <td><a href="/cgi-bin/Dispatcher.pl?class=Timokhin_stack&event=show_all&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>">Results</a></td>
-            <td ><a href="/cgi-bin/Dispatcher.pl?class=Timokhin_group&event=delete_row&group_id=<TMPL_VAR NAME=TG_ID>" style="color: red">Delete</a></td>
+            <td><input type="checkbox" name="group_id" value="<TMPL_VAR NAME=TG_ID>"></td>  
           </tr>
           </TMPL_LOOP>
         </tbody>
-    </table>
+    </table>     
+    <input type="hidden" name="class" value="Timokhin_group">
+    <input type="hidden" name="event" value="delete_row">    
+    <input type="submit" value="Delete groups!" class="form-control" />  
+    </form> 
+
 
   <form action="">
   <p>Add new group to Telegram DB:</p>
@@ -53,7 +60,7 @@
       <input type="hidden" name="event" value="insert_row">
     </div>
   </div>
-  <input type="submit" value="Submit request" class="form-control" />
+  <input type="submit" value="Add group" class="form-control" />
   </form>
 
 
