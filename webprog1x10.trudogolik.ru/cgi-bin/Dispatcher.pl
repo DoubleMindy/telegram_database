@@ -14,10 +14,14 @@ eval
 
   my $group_id    = $io_cgi->param('group_id');
   my $group_title = $io_cgi->param('group_title');
+
   eval "require $class";
   my $obj = $class->new( $group_id, $group_title );
   $obj->$event();
+
 };
+
+# Handler for errors
 if ($@)
 {
   print "Content-Type: text/html\n";
