@@ -35,7 +35,8 @@ package Timokhin_group;
 
   sub delete_row
   {
-    my ($this) = @_;
+    my ($this) = @_;    
+    print "DUMPER: $this->{group_id}\n";
 
     $group->db_delete( $this->{group_id} );
     show_all();
