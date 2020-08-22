@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.css">
   </head>
   <body>  
+  <form method="post" action="">
     <table width="100%" class="table">
         <thead class="thead-dark">
           <tr>    
@@ -24,6 +25,7 @@
           </tr>
         </thead>
         <tbody>
+        
           <TMPL_LOOP NAME=GROUP_INFO>
           <tr>            
             <td><TMPL_VAR NAME=TG_ID></td>
@@ -31,11 +33,15 @@
             <td><a href="/cgi-bin/Dispatcher.pl?class=Timokhin_member&event=show_all&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>">Members</a></td>
             <td><a href="/cgi-bin/Dispatcher.pl?class=Timokhin_homework&event=show_all&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>">Homeworks</a></td>
             <td><a href="/cgi-bin/Dispatcher.pl?class=Timokhin_stack&event=show_all&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>">Results</a></td>
+
             <td ><a href="/cgi-bin/Dispatcher.pl?class=Timokhin_group&event=delete_row&group_id=<TMPL_VAR NAME=TG_ID>" style="color: red">Delete</a></td>
           </tr>
           </TMPL_LOOP>
         </tbody>
     </table>
+
+    <p style="text-align: center"><button>Delete groups!</button>
+    </form>
 
   <form action="">
   <p>Add new group to Telegram DB:</p>
