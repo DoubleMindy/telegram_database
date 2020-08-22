@@ -21,6 +21,7 @@ eval
 
 };
 
+# Handler for errors
 if ($@)
 {
   print "Content-Type: text/html\n";
