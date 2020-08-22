@@ -7,9 +7,6 @@ use strict;
 
 package EventConnecter;
 {
-  
-#  my $classname = "Member";
-
 
   sub new
   {
