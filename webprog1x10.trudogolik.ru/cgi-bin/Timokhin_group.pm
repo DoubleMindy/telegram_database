@@ -36,9 +36,18 @@ package Timokhin_group;
   sub delete_row
   {
     my ($this) = @_;    
-    print "DUMPER: $this->{group_id}\n";
-
-    $group->db_delete( $this->{group_id} );
+    if ( ref($this->{group_id}) ne "ARRAY"  )
+    {
+      $group->db_delete( $this->{group_id} );
+    }
+    else
+    {
+      my @group_ids = @{ $this->{group_id} };
+      foreach my $gr ( @group_ids )
+      {
+        $group->db_delete( $gr );
+      }
+    }
     show_all();
   }
 
