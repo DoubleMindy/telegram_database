@@ -120,6 +120,4 @@ package EventConnecter;
   }
 }
 
-#my $obj = new EventConnecter("Group", -333);
-#$obj->insert_row();
 return 1;
