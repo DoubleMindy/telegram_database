@@ -8,21 +8,9 @@
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.css">
 
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function() 
-      {
-        $("input#add_group").click(function()
-          {
-            $.post( 
-              '/cgi-bin/Dispatcher.pl', 
-              $('form#add_form').serialize(), 
-              $('#db_result').load('/html/Timokhin_group.html'), 
-              $('#error_msg').load('/html/Timokhin_group.html'), 
-                  );
-          })
-      })
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/async_group_add.js"></script></script>
+
   </head>
 
   <body>  
@@ -43,7 +31,7 @@
         
           <TMPL_LOOP NAME=GROUP_INFO>
           <tr>            
-            <td><TMPL_VAR NAME=TG_ID></td>
+            <td id='row_group_id'><TMPL_VAR NAME=TG_ID></td>
             <th score="row"><TMPL_VAR NAME=TITLE></th>
             <td><a href="/cgi-bin/Dispatcher.pl?class=Member&event=filter&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>">Members</a></td>
             <td><a href="/cgi-bin/Dispatcher.pl?class=Homework&event=filter&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>">Homeworks</a></td>
@@ -76,12 +64,10 @@
       <input type="hidden" name="event" value="insert_row">
     </div>
   </div>
-  <input type="submit" id="add_group" value="Add group" class="form-control" />
+  <input type="submit" value="Add group" class="form-control" />
   </form>
-            <TMPL_IF NAME=ERROR>
-            <div class="alert alert-danger" id="error_msg" role="alert">
-                          <strong>Duplicating or no-id input!</strong> Try another ID...
-            </TMPL_IF>
+  <div id="ok_message" role="alert"></div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
