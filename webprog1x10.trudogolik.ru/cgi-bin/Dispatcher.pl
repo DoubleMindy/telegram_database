@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 
 use lib '.';
+require EventConnecter;
 use autouse 'Data::Dumper' => qw(Dumper);
 require 'io_cgi.pl';
 
@@ -16,7 +17,7 @@ eval
   my $group_title = $io_cgi->param('group_title');
 
   eval "require $class";
-  my $obj = $class->new( $group_id, $group_title );
+  my $obj = EventConnecter->new( $class, $group_id, $group_title );
   $obj->$event();
 
 };
