@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.css">
-
+    <link href="/css/style.css" rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/js/async_group_add.js"></script></script>
@@ -14,6 +14,26 @@
   </head>
 
   <body>  
+    <header>
+      <div class="header-left">
+        <a href="/"> <img src="/images/logo.png" width="70" height="70" alt="Logo"> </a>
+      </div>
+      <div class="header-center">
+        <a href="/cgi-bin/Dispatcher.pl?class=Group&event=show_all" title="Show all groups">Groups</a>
+      </div>
+      <div class="header-right">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">
+        <img src="/images/question.png" width="60" height="60" alt="About">
+        </button>
+        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              (c) Timokhin Ilya, 2020, WebProg1
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
     <div id = "db_result">
     <form action="">
     <table width="100%" class="table">
@@ -33,9 +53,9 @@
           <tr>            
             <td id='row_group_id'><TMPL_VAR NAME=TG_ID></td>
             <th score="row"><TMPL_VAR NAME=TITLE></th>
-            <td><a href="/cgi-bin/Dispatcher.pl?class=Member&event=filter&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>">Members</a></td>
-            <td><a href="/cgi-bin/Dispatcher.pl?class=Homework&event=filter&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>">Homeworks</a></td>
-            <td><a href="/cgi-bin/Dispatcher.pl?class=Stack&event=filter&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>">Results</a></td>
+            <td><a href="/cgi-bin/Dispatcher.pl?class=Member&event=filter&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>" title="Show members in this group">Members</a></td>
+            <td><a href="/cgi-bin/Dispatcher.pl?class=Homework&event=filter&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>" title="Show homeworks in this group">Homeworks</a></td>
+            <td><a href="/cgi-bin/Dispatcher.pl?class=Stack&event=filter&group_id=<TMPL_VAR NAME=TG_ID>&group_title=<TMPL_VAR NAME=TITLE>" title="Show results in this group">Results</a></td>
             <td><input type="checkbox" name="group_id" value="<TMPL_VAR NAME=TG_ID>"></td>  
           </tr>
           </TMPL_LOOP>
@@ -43,7 +63,7 @@
     </table>     
     <input type="hidden" name="class" value="Group">
     <input type="hidden" name="event" value="delete_row">    
-    <input type="submit" value="Delete groups!" class="form-control" />  
+    <input type="submit" value="Delete groups!"/>  
     </form> 
     </div>
 
@@ -64,7 +84,7 @@
       <input type="hidden" name="event" value="insert_row">
     </div>
   </div>
-  <input type="submit" value="Add group" class="form-control" />
+  <input type="submit" value="Add group" />
   </form>
   <div id="ok_message" role="alert"></div>
 
