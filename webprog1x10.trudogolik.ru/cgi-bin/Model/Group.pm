@@ -54,7 +54,8 @@ package Model::Group;
   {  
     my ($this) = @_;
     my $sth = $db_obj->exec( 
-                          " SELECT tg_id, title FROM " . get_table('group_id')
+                          " SELECT tg_id, title FROM " . get_table('group_id') .
+                          " ORDER BY tg_id"
                           )->fetchall_arrayref({});
     return $sth;
 

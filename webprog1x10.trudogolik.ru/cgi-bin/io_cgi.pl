@@ -174,7 +174,7 @@ sub get_params
 		}
 		else
 		{
-			die io_exception->new('Unknown www-form encoding method: '.$ENV{CONTENT_TYPE});
+			die print('<br>Unknown www-form encoding method: '.$ENV{CONTENT_TYPE}. '</br>');
 		}
 	}
 
@@ -510,7 +510,7 @@ sub add_param
 
 	if(!($param_name))
 	{
-		die io_exception->new('<br>Не задано имя параметра - ('.$param_name.') (значение - '.$param_value.') при записи в хеш io_cgi<br>');
+		die print('<br>Не задано имя параметра - ('.$param_name.') (значение - '.$param_value.') при записи в хеш io_cgi<br>');
 	}
 	${$this->{ 'param' }} { $param_name }=$param_value;
 }

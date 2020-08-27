@@ -6,8 +6,29 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.css">
+    <link href="/css/style.css" rel="stylesheet">
   </head>
   <body>
+    <header>
+      <div class="header-left">
+        <a href="/"> <img src="/images/logo.png" width="70" height="70" alt="Logo"> </a>
+      </div>
+      <div class="header-center">
+        <a href="/cgi-bin/Dispatcher.pl?class=Group&event=show_all" title="Show all groups">Groups</a>
+      </div>
+      <div class="header-right">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">
+        <img src="/images/question.png" width="60" height="60" alt="About">
+        </button>
+        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              (c) Timokhin Ilya, 2020, WebProg1
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
     <table width="100%" class="table">
       <thead class="thead-dark">
         <tr>

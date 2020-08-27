@@ -68,26 +68,12 @@ package EventConnecter;
   sub insert_row
   {
     my ($this) = shift;
-    my $err = 0;
 
-    # & defined because it converts undef to empty strings
-
-    if( ( $this->{group_id} ) eq "" & ( defined $this->{group_id} ) )
+    if ( $this->{group_id} )
     {
-      $err = 1;
-    }
-    elsif ( $this->{group_id} )
-    {
-      my $sth = $this->{essence}->db_select_where($this->{group_id});
-      if ( defined $sth )
-      {
-        $err = 1;
-      }
-
-    $this->{essence}->db_insert($this->{group_id}, $this->{group_title});
+      $this->{essence}->db_insert($this->{group_id}, $this->{group_title});
     }
 
-    $this->{template}->param( ERROR => $err );
     $this->show_all();
   }
 
